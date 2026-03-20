@@ -5,9 +5,9 @@ Application de réservation immobilière développée avec Laravel.
 ##  Objectif
 
 Ce projet permet de :
-- consulter des biens immobiliers
-- réserver un bien
-- gérer des réservations
+- Consulter des biens immobiliers
+- Réserver un bien
+- Gérer des réservations
 
 ##  Technologies utilisées
 
