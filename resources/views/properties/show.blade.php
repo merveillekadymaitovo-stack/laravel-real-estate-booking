@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Détail</title>
+    @livewireStyles
 </head>
 <body>
 
@@ -12,5 +13,11 @@
 
 <a href="/properties">Retour</a>
 
+<hr>
+
+<!--  COMPOSANT LIVEWIRE -->
+@livewire('booking-manager', ['property_id' => $property->id])
+
+@livewireScripts
 </body>
 </html>
