@@ -1,6 +1,7 @@
-##  Laravel Real Estate Booking
+#  Laravel Real Estate Booking
 
-Ce projet est une application web de réservation immobilière réalisée avec Laravel dans le cadre de mon apprentissage du framework et du développement web.
+Ce projet a été réalisé dans le cadre d’un test technique.  
+Il s’agit d’une application web de réservation immobilière développée avec Laravel, qui m’a permis de mettre en pratique mes compétences en développement web.
 
 ##  Objectif du projet
 
@@ -11,7 +12,7 @@ L’objectif de cette application est de permettre à un utilisateur de :
 - réserver un bien en sélectionnant des dates  
 - associer chaque réservation à un utilisateur connecté  
 
-Ce projet m’a permis de comprendre le fonctionnement global d’une application Laravel, de la base de données jusqu’à l’interface utilisateur.
+Ce projet m’a permis de comprendre le fonctionnement global d’une application Laravel, de la gestion de la base de données jusqu’à l’interface utilisateur.
 
 ---
 
@@ -23,6 +24,15 @@ Ce projet m’a permis de comprendre le fonctionnement global d’une applicatio
 - Blade (moteur de templates)
 - TailwindCSS (mise en forme)
 - MySQL (base de données)
+
+---
+
+##  Choix techniques
+
+- Utilisation de **Laravel Breeze** pour mettre en place rapidement un système d’authentification complet  
+- Utilisation de **Livewire** pour créer un formulaire de réservation dynamique sans JavaScript complexe  
+- Utilisation de **Eloquent ORM** pour gérer les relations entre utilisateurs, propriétés et réservations  
+- Structuration du projet selon l’architecture MVC de Laravel  
 
 ---
 
@@ -50,9 +60,8 @@ npm run dev
 
  Accéder à l’application :
 http://127.0.0.1:8000
-
 ```
-##  Fonctionnalités principales
+## Fonctionnalités principales
 Authentification utilisateur (inscription / connexion)
 Affichage des propriétés
 Page détail d’un bien
@@ -61,9 +70,19 @@ Enregistrement des réservations en base de données
 Message de confirmation après réservation
  Ce que j’ai appris
 
+## À travers ce projet, j’ai pu apprendre :
 
- ## Auteur
+la création de routes et contrôleurs avec Laravel
+la gestion des modèles et des relations avec Eloquent
+l’utilisation des migrations pour structurer la base de données
+la mise en place d’une authentification avec Breeze
+la création de composants dynamiques avec Livewire
+l’organisation d’un projet web complet
+## Améliorations possibles
+Gestion des conflits de réservation (dates déjà réservées)
+Ajout d’une page “Mes réservations” pour chaque utilisateur
+Amélioration de l’interface utilisateur avec TailwindCSS
+Mise en place d’un panneau d’administration avec Filament
+## Auteur
 
 Kady Merveille Maitovo
-Étudiante en Licence 3 MIASHS – Parcours Informatique
-Université Toulouse Jean Jaurès
