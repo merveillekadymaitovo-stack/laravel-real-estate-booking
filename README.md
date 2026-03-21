@@ -1,6 +1,5 @@
 #  Laravel Real Estate Booking
-
-Ce projet a été réalisé dans le cadre d’un test technique.  
+Projet réalisé dans le cadre d’un test technique pour un stage en développement web.
 Il s’agit d’une application web de réservation immobilière développée avec Laravel, qui m’a permis de mettre en pratique mes compétences en développement web.
 
 ##  Objectif du projet
