@@ -83,6 +83,10 @@ Gestion des conflits de réservation (dates déjà réservées)
 Ajout d’une page “Mes réservations” pour chaque utilisateur
 Amélioration de l’interface utilisateur avec TailwindCSS
 Mise en place d’un panneau d’administration avec Filament
+
+
+<img width="1294" height="774" alt="image" src="https://github.com/user-attachments/assets/938096b0-ffc2-4cf6-854e-3a59981b9e91" />
+
 ## Auteur
 
 Kady Merveille Maitovo
