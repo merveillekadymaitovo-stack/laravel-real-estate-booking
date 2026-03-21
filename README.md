@@ -51,7 +51,8 @@ npm run dev
  Accéder à l’application :
 http://127.0.0.1:8000
 
- Fonctionnalités principales
+```
+##  Fonctionnalités principales
 Authentification utilisateur (inscription / connexion)
 Affichage des propriétés
 Page détail d’un bien
@@ -60,15 +61,8 @@ Enregistrement des réservations en base de données
 Message de confirmation après réservation
  Ce que j’ai appris
 
-À travers ce projet, j’ai pu apprendre :
 
-la création de routes et de contrôleurs avec Laravel
-la gestion des modèles et des relations (Eloquent ORM)
-l’utilisation des migrations pour structurer la base de données
-la mise en place d’une authentification avec Breeze
-l’utilisation de Livewire pour créer des composants dynamiques
-l’organisation d’un projet web complet
- Auteur
+ ## Auteur
 
 Kady Merveille Maitovo
 Étudiante en Licence 3 MIASHS – Parcours Informatique
