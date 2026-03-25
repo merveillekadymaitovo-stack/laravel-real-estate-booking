@@ -1,6 +1,3 @@
-Parfait ! Voici le README complet prêt à être copié :
-
-
 #  ImmoReserv
 
 ![Status](https://img.shields.io/badge/status-completed-brightgreen)
