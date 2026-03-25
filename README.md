@@ -1,7 +1,7 @@
 Parfait ! Voici le README complet prêt à être copié :
 
 
-# 🏠 ImmoReserv
+#  ImmoReserv
 
 ![Status](https://img.shields.io/badge/status-completed-brightgreen)
 ![Laravel](https://img.shields.io/badge/Laravel-11-red)
@@ -15,7 +15,7 @@ Application de gestion de réservations immobilières réalisée dans le cadre d
 
 ---
 
-## 📋 Table des matières
+##  Table des matières
 
 - [Fonctionnalités](#-fonctionnalités)
 - [Technologies utilisées](#-technologies-utilisées)
@@ -32,9 +32,9 @@ Application de gestion de réservations immobilières réalisée dans le cadre d
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
-### 👤 Côté utilisateur
+###  Côté utilisateur
 - Authentification complète (inscription, connexion, déconnexion) avec Laravel Breeze
 - Tableau de bord personnel avec métriques clés
 - Liste des propriétés disponibles avec photos et prix par nuit
@@ -43,7 +43,7 @@ Application de gestion de réservations immobilières réalisée dans le cadre d
 - Page "Mes réservations" avec possibilité de confirmer ou annuler
 - Vérification des conflits de dates pour éviter les double-réservations
 
-### 🛠️ Panneau d'administration (Filament)
+###  Panneau d'administration (Filament)
 - Gestion complète des propriétés (CRUD)
 - Gestion complète des réservations (CRUD)
 - Filtres et recherche avancée
@@ -66,7 +66,7 @@ Application de gestion de réservations immobilières réalisée dans le cadre d
 
 
 
-## 🚀 Installation
+##  Installation
 
 ### 1. Cloner le projet
 
@@ -151,7 +151,7 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 | Commande | Description |
 |----------|-------------|
 | `php artisan serve` | Démarrer le serveur de développement |
-| `php artisan migrate:fresh --seed` | Réinitialiser et repeupler la base de données |
+| `php artisan migrate:fresh --seed` | Réinitialiser et repeupler la base de données|
 | `php artisan cache:clear` | Vider le cache de l'application |
 | `php artisan view:clear` | Vider le cache des vues |
 | `php artisan test` | Lancer les tests automatisés |
@@ -177,7 +177,7 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 ---
 
-## 📊 Structure de la base de données
+##  Structure de la base de données
 
 ### Diagramme des relations
 
@@ -199,9 +199,9 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 | Statut | Description | Visuel |
 |--------|-------------|--------|
-| `pending` | En attente de confirmation | ⏳ Jaune |
-| `confirmed` | Confirmée | ✅ Vert |
-| `cancelled` | Annulée | ❌ Rouge |
+| `pending` | En attente de confirmation |  Jaune |
+| `confirmed` | Confirmée |  Vert |
+| `cancelled` | Annulée |  Rouge |
 
 ---
 
@@ -224,7 +224,7 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 ---
 
-## 🚧 Améliorations possibles
+##  Améliorations possibles
 
 ### Court terme
 - [ ] Système de notation des propriétés par les utilisateurs (⭐⭐⭐⭐⭐)
@@ -242,7 +242,7 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 ---
 
-## 🐛 Résolution des problèmes courants
+##  Résolution des problèmes courants
 
 ### Extension PHP intl manquante
 
@@ -292,7 +292,7 @@ php artisan optimize
 
 ---
 
-## ❓ FAQ
+##  FAQ
 
 **Comment réinitialiser complètement l'application ?**
 
@@ -329,7 +329,7 @@ php artisan db:seed --class=PropertySeeder
 
 ---
 
-## 📝 Retour d'expérience
+##  Retour d'expérience
 
 C'était ma première expérience avec **Livewire** et **Filament**. Voici mon ressenti :
 
@@ -353,13 +353,13 @@ C'était ma première expérience avec **Livewire** et **Filament**. Voici mon r
 
 ---
 
-## 📄 Licence
+##  Licence
 
 Ce projet est réalisé dans le cadre d'un test technique.
 
 ---
 
-## 👤 Auteur
+##  Auteur
 
 **Kady Merveille Maitovo**
 
@@ -367,7 +367,7 @@ Ce projet est réalisé dans le cadre d'un test technique.
 
 ---
 
-## 🙏 Remerciements
+##  Remerciements
 
 - [Laravel](https://laravel.com) - Framework PHP
 - [Livewire](https://livewire.laravel.com) - Composants dynamiques
@@ -376,18 +376,17 @@ Ce projet est réalisé dans le cadre d'un test technique.
 
 ---
 
-## 🌐 Langues
+##  Langues
 
 - [Français](README.md)
 - [English](README.en.md) (à venir)
 
 ---
 
-## 📊 Statistiques du projet
+##  Statistiques du projet
 
 ![Code Size](https://img.shields.io/github/languages/code-size/merveillekadymaitovo-stack/laravel-real-estate-booking)
 ![Repo Size](https://img.shields.io/github/repo-size/merveillekadymaitovo-stack/laravel-real-estate-booking)
 ![Last Commit](https://img.shields.io/github/last-commit/merveillekadymaitovo-stack/laravel-real-estate-booking)
 ```
 
-Ce README est maintenant prêt à être utilisé ! Tu n'as plus qu'à le copier dans ton fichier `README.md`. N'oublie pas de créer le dossier `screenshots/` et d'y ajouter tes captures d'écran. 🎉
