@@ -160,7 +160,7 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 ---
 
-## 📖 Utilisation
+##  Utilisation
 
 ### Pour les utilisateurs
 
