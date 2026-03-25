@@ -205,7 +205,7 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 ---
 
-## 📸 Captures d'écran
+##  Captures d'écran
 
 ### Page d'accueil - Liste des propriétés
 ![Propriétés](screenshots/properties.png)
@@ -214,7 +214,8 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 ![Réservation dynamique](screenshots/booking-form.png)
 
 ### Tableau de bord utilisateur
-![Dashboard](screenshots/dashboard.png)
+<img width="1915" height="929" alt="image" src="https://github.com/user-attachments/assets/124d064b-311f-4492-9021-9b0f190693bc" />
+
 
 ### Mes réservations
 ![Mes réservations](screenshots/my-bookings.png)
