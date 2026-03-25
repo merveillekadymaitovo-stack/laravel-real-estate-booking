@@ -208,20 +208,26 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 ##  Captures d'écran
 
 ### Page d'accueil - Liste des propriétés
-![Propriétés](screenshots/properties.png)
+<img width="1889" height="938" alt="image" src="https://github.com/user-attachments/assets/c100ef4c-d9ab-4fe5-83ea-3993258461f0" />
+<img width="1917" height="970" alt="image" src="https://github.com/user-attachments/assets/d56a6fae-22bc-4a0c-b79a-fcc1e7e0ee9f" />
+
+
 
 ### Détail d'une propriété - Formulaire de réservation dynamique
-![Réservation dynamique](screenshots/booking-form.png)
+<img width="1786" height="923" alt="image" src="https://github.com/user-attachments/assets/85862153-609d-42e3-a417-9be736032fe2" />
+<img width="1919" height="949" alt="image" src="https://github.com/user-attachments/assets/78902e7d-26a1-4510-8eac-97b28761509b" />
+
 
 ### Tableau de bord utilisateur
 <img width="1915" height="929" alt="image" src="https://github.com/user-attachments/assets/124d064b-311f-4492-9021-9b0f190693bc" />
 
 
 ### Mes réservations
-![Mes réservations](screenshots/my-bookings.png)
+<img width="1910" height="925" alt="image" src="https://github.com/user-attachments/assets/d4def4ce-fe24-407a-9b9c-260ac06606ea" />
 
 ### Panneau d'administration Filament
-![Admin Panel](screenshots/admin-panel.png)
+<img width="1892" height="897" alt="image" src="https://github.com/user-attachments/assets/db87e79f-0a44-412c-81c9-96d85052f552" />
+
 
 ---
 
