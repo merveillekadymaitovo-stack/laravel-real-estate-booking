@@ -1,23 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Détail</title>
-    @livewireStyles
-</head>
-<body>
+<x-app-layout>
 
-<h1>{{ $property->name }}</h1>
+    <div class="max-w-5xl mx-auto p-6">
 
-<p>{{ $property->description }}</p>
-<p>{{ $property->price_per_night }} € / nuit</p>
+        <h1 class="text-3xl font-bold mb-2">
+            {{ $property->name }}
+        </h1>
 
-<a href="/properties">Retour</a>
+        <p class="text-gray-600 mb-2">
+            {{ $property->description }}
+        </p>
 
-<hr>
+        <p class="text-lg font-semibold mb-4">
+            {{ $property->price_per_night }} € / nuit
+        </p>
 
-<!--  COMPOSANT LIVEWIRE -->
-@livewire('booking-manager', ['property_id' => $property->id])
+        <a href="/properties" class="text-blue-500 underline mb-6 inline-block">
+            ← Retour
+        </a>
 
-@livewireScripts
-</body>
-</html>
+        
+        @livewire('booking-manager', ['property_id' => $property->id])
+
+    </div>
+
+</x-app-layout>

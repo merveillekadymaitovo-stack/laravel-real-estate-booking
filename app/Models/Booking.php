@@ -11,15 +11,32 @@ class Booking extends Model
         'property_id',
         'start_date',
         'end_date',
+        'status',
+        'total_price'  // 👈 ajouté
     ];
 
-    public function user()
+    protected static function booted()
     {
-        return $this->belongsTo(User::class);
+        static::creating(function ($booking) {
+            $property = Property::find($booking->property_id);
+
+            if ($property) {
+                $start = \Carbon\Carbon::parse($booking->start_date);
+                $end   = \Carbon\Carbon::parse($booking->end_date);
+                $nights = $start->diffInDays($end);
+
+                $booking->total_price = $nights * $property->price_per_night;
+            }
+        });
     }
 
     public function property()
     {
         return $this->belongsTo(Property::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

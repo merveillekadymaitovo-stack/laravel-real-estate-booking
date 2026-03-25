@@ -9,13 +9,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bookings', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('property_id')->constrained()->onDelete('cascade');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->timestamps();
-        });
+        $table->id(); // 🔥 IMPORTANT
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->foreignId('property_id')->constrained()->onDelete('cascade');
+        $table->date('start_date');
+        $table->date('end_date');
+        $table->timestamps();
+    });
     }
 
     public function down(): void

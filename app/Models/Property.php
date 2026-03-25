@@ -10,6 +10,7 @@ class Property extends Model
         'name',
         'description',
         'price_per_night',
+        'image'
     ];
 
     public function bookings()

@@ -1,24 +1,41 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\BookingController;
 
-Route::get('/properties', [PropertyController::class, 'index']);
-Route::get('/properties/{id}', [PropertyController::class, 'show']);
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+*/
 
+// ACCUEIL 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect()->route('properties.index');
+})->name('home');
+// DASHBOARD
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+
+// =====================
+// PROPERTIES
+// =====================
+Route::get('/properties', [PropertyController::class, 'index'])->name('properties.index');
+Route::get('/properties/create', [PropertyController::class, 'create'])->name('properties.create');
+Route::post('/properties', [PropertyController::class, 'store'])->name('properties.store');
+Route::get('/properties/{id}', [PropertyController::class, 'show'])->name('properties.show');
+// =====================
+// BOOKINGS
+// =====================
+Route::get('/my-bookings', [BookingController::class, 'index'])->name('bookings.index');
+Route::post('/bookings/{id}/confirm', [BookingController::class, 'confirm'])->name('bookings.confirm');
+Route::post('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+})->middleware('auth')->name('dashboard');
 
 require __DIR__.'/auth.php';

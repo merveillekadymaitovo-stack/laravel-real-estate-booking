@@ -1,36 +1,57 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>ImmoReserv</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<body class="bg-gray-100">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+<div class="flex min-h-screen">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-white shadow-lg flex flex-col">
+        <div class="p-6 text-xl font-bold text-blue-600">
+            ImmoReserv
         </div>
-    </body>
+
+        <nav class="space-y-2 px-4 flex-1">
+            <a href="/dashboard"
+               class="block px-4 py-2 rounded hover:bg-blue-100">
+                Tableau de bord
+            </a>
+
+            <a href="/properties"
+               class="block px-4 py-2 rounded hover:bg-blue-100">
+                Propriétés
+            </a>
+
+            <a href="/my-bookings"
+               class="block px-4 py-2 rounded hover:bg-blue-100">
+                Réservations
+            </a>
+        </nav>
+
+        <!-- DÉCONNEXION EN BAS -->
+        <div class="p-4 border-t border-gray-200">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit"
+                        class="w-full text-left px-4 py-2 rounded text-red-500 hover:bg-red-50 hover:text-red-700 transition font-medium">
+                    Déconnexion
+                </button>
+            </form>
+        </div>
+
+    </aside>
+
+    <!-- CONTENU -->
+    <main class="flex-1 p-6">
+        {{ $slot }}
+    </main>
+
+</div>
+
+</body>
 </html>
