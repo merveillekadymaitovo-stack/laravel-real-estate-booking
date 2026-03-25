@@ -1,6 +1,6 @@
 Parfait ! Voici le README complet prêt à être copié :
 
-```markdown
+
 # 🏠 ImmoReserv
 
 ![Status](https://img.shields.io/badge/status-completed-brightgreen)
@@ -64,7 +64,7 @@ Application de gestion de réservations immobilières réalisée dans le cadre d
 | MySQL | 8.0 | Base de données |
 | Alpine.js | - | Interactions JavaScript légères |
 
----
+
 
 ## 🚀 Installation
 
