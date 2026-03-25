@@ -52,7 +52,7 @@ Application de gestion de réservations immobilières réalisée dans le cadre d
 
 ---
 
-## 🛠️ Technologies utilisées
+##  Technologies utilisées
 
 | Technologie | Version | Utilité |
 |-------------|---------|---------|
@@ -129,7 +129,7 @@ L'application est accessible sur : [http://127.0.0.1:8000](http://127.0.0.1:8000
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Créer un compte administrateur
 
@@ -142,7 +142,7 @@ php artisan make:filament-user
 Puis remplissez les informations demandées :
 - **Name** : Admin
 - **Email** : admin@example.com
-- **Password** : password
+- **Password** : 1234
 
 Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
