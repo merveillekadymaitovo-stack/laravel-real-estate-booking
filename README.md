@@ -1,90 +1,113 @@
-#  Laravel Real Estate Booking
-Projet réalisé dans le cadre d’un test technique pour un stage en développement web.
-Il s’agit d’une application web de réservation immobilière développée avec Laravel, qui m’a permis de mettre en pratique mes compétences en développement web.
+# ImmoReserv
 
-##  Objectif du projet
-
-L’objectif de cette application est de permettre à un utilisateur de :
-
-- consulter une liste de biens immobiliers  
-- voir le détail d’un bien  
-- réserver un bien en sélectionnant des dates  
-- associer chaque réservation à un utilisateur connecté  
-
-Ce projet m’a permis de comprendre le fonctionnement global d’une application Laravel, de la gestion de la base de données jusqu’à l’interface utilisateur.
+Application de gestion de réservations immobilières réalisée dans le cadre d'un test technique. Le projet utilise Laravel 11 avec Breeze pour l'authentification, Livewire pour les composants dynamiques, Filament pour le panneau d'administration et TailwindCSS pour le style.
 
 ---
 
-##  Technologies utilisées
+## Technologies utilisées
 
-- Laravel (framework PHP)
+- Laravel 11
 - Laravel Breeze (authentification)
-- Livewire (composants dynamiques)
-- Blade (moteur de templates)
-- TailwindCSS (mise en forme)
-- MySQL (base de données)
+- Livewire 3 (formulaire de réservation dynamique)
+- Filament 3 (interface d'administration)
+- TailwindCSS
+- MySQL
 
 ---
 
-##  Choix techniques
+## Installation
 
-- Utilisation de **Laravel Breeze** pour mettre en place rapidement un système d’authentification complet  
-- Utilisation de **Livewire** pour créer un formulaire de réservation dynamique sans JavaScript complexe  
-- Utilisation de **Eloquent ORM** pour gérer les relations entre utilisateurs, propriétés et réservations  
-- Structuration du projet selon l’architecture MVC de Laravel  
-
----
-
-##  Installation du projet
-
-### 1. Cloner le projet
+Cloner le projet et se placer dedans :
 
 ```bash
 git clone https://github.com/merveillekadymaitovo-stack/laravel-real-estate-booking.git
 cd laravel-real-estate-booking
-2. Installer les dépendances
+```
+
+Installer les dépendances :
+
+```bash
 composer install
 npm install
-3. Configurer l’environnement
+```
+
+Copier le fichier d'environnement et générer la clé :
+
+```bash
 cp .env.example .env
 php artisan key:generate
-
- Modifier le fichier .env pour configurer la base de données (MySQL)
-
-4. Lancer les migrations
-php artisan migrate
-5. Démarrer le projet
-php artisan serve
-npm run dev
-
- Accéder à l’application :
-http://127.0.0.1:8000
 ```
-## Fonctionnalités principales
-Authentification utilisateur (inscription / connexion)
-Affichage des propriétés
-Page détail d’un bien
-Réservation d’un bien avec choix des dates
-Enregistrement des réservations en base de données
-Message de confirmation après réservation
- Ce que j’ai appris
 
-## À travers ce projet, j’ai pu apprendre :
+Configurer la base de données dans le fichier `.env` :
 
-la création de routes et contrôleurs avec Laravel
-la gestion des modèles et des relations avec Eloquent
-l’utilisation des migrations pour structurer la base de données
-la mise en place d’une authentification avec Breeze
-la création de composants dynamiques avec Livewire
-l’organisation d’un projet web complet
+```env
+DB_DATABASE=laravel_test
+DB_USERNAME=root
+DB_PASSWORD=votre_mot_de_passe
+```
+
+Lancer les migrations :
+
+```bash
+php artisan migrate
+```
+
+Compiler les assets et démarrer le serveur :
+
+```bash
+npm run dev
+php artisan serve
+```
+
+L'application tourne sur http://127.0.0.1:8000
+
+---
+
+## Créer un compte admin
+
+Pour accéder au panneau Filament sur `/admin` :
+
+```bash
+php artisan make:filament-user
+```
+
+---
+
+## Ce qui a été réalisé
+
+- Authentification complète avec Breeze (connexion, inscription, déconnexion)
+- Tableau de bord avec les métriques principales (nombre de propriétés, réservations, revenus)
+- Liste des propriétés avec photos et prix par nuit
+- Formulaire de réservation en Livewire avec calcul automatique du total selon les dates
+- Page mes réservations avec possibilité de confirmer ou annuler
+- Panneau d'administration Filament avec gestion des propriétés et des réservations
+
+---
+
+## Structure de la base de données
+
+Trois tables principales :
+
+- `users` : les utilisateurs créés via Breeze
+- `properties` : les biens immobiliers (nom, description, prix par nuit, image)
+- `bookings` : les réservations liées à un utilisateur et une propriété (dates, statut)
+
+---
+
 ## Améliorations possibles
-Gestion des conflits de réservation (dates déjà réservées)
-Ajout d’une page “Mes réservations” pour chaque utilisateur
-Amélioration de l’interface utilisateur avec TailwindCSS
-Mise en place d’un panneau d’administration avec Filament
 
+- Gestion des conflits de dates côté serveur avec messages d'erreur plus détaillés
+- Système de notation des propriétés par les utilisateurs
+- Envoi d'emails de confirmation après réservation
+- Filtrage des propriétés par prix ou localisation
 
-<img width="1294" height="774" alt="image" src="https://github.com/user-attachments/assets/938096b0-ffc2-4cf6-854e-3a59981b9e91" />
+---
+
+## Remarques
+
+C'était la première fois que je travaillais avec Livewire et Filament. J'ai pris le temps de lire la documentation pour comprendre le fonctionnement des composants Livewire et la façon dont Filament génère les ressources automatiquement à partir des modèles Eloquent.
+
+---
 
 ## Auteur
 
