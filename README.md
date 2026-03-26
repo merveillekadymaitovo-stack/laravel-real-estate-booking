@@ -7,50 +7,63 @@
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4)
 ![PHP Version](https://img.shields.io/badge/PHP-8.2-blue)
 
-Application de réservation immobilière réalisée dans le cadre d'un test technique.
+Application de gestion de réservations immobilières réalisée dans le cadre d'un test technique.  
+Elle couvre l'ensemble des livrables demandés : authentification Breeze, gestion des propriétés et réservations, interface Blade + TailwindCSS, composant Livewire dynamique et panneau Filament.
+
+---
+
+## Livrables — récapitulatif
+
+| Livrable demandé | Statut |
+|---|---|
+| Projet Laravel fonctionnel avec authentification Breeze | ✅ |
+| Gestion des propriétés et réservations | ✅ |
+| Interface Blade avec TailwindCSS et couleurs personnalisées | ✅ |
+| Composant Livewire pour la réservation (`wire:model`, `wire:click`) | ✅ |
+| Panneau Filament avec tables et formulaires | ✅ |
+| Projet disponible sur Git + captures d'écran | ✅ |
 
 ---
 
 ## C'est quoi le projet ?
 
-ImmoReserv est une appli web de gestion de réservations immobilières. Les utilisateurs peuvent parcourir des biens, réserver des dates avec un **calcul de prix en temps réel**, et gérer leurs réservations depuis un tableau de bord. Il y a aussi un **panneau admin complet** pour gérer biens et réservations.
-
-C'était ma première vraie plongée dans **Livewire** et **Filament**, deux technos que je ne connaissais pas avant ce projet.
+ImmoReserv permet aux utilisateurs de parcourir des biens immobiliers, de réserver des dates avec un **calcul de prix en temps réel**, et de gérer leurs réservations depuis un tableau de bord personnel. Un **panneau d'administration Filament** permet de gérer l'ensemble des données.
 
 ---
 
 ## Fonctionnalités
 
 ### Côté utilisateur
-- Inscription / connexion (Laravel Breeze)
-- Tableau de bord personnel avec métriques
-- Liste et détail des biens disponibles
-- Formulaire de réservation avec calcul automatique du prix total selon les dates
-- Gestion de ses réservations (confirmation, annulation)
-- Détection des conflits de dates pour éviter les doubles réservations
+- Inscription / connexion / déconnexion (Laravel Breeze)
+- Tableau de bord avec métriques clés
+- Liste des propriétés disponibles avec photos et prix par nuit
+- Formulaire de réservation dynamique avec calcul automatique du prix total
+- Page "Mes réservations" — confirmation et annulation
+- Vérification des conflits de dates pour éviter les doubles réservations
 
 ### Panneau admin (Filament)
-- CRUD complet sur les biens
+- CRUD complet sur les propriétés
 - CRUD complet sur les réservations
-- Filtres et recherche avancée
+- Filtres, recherche avancée
 - Interface responsive, traduite en français
 
 ---
 
 ## Stack technique
 
-| Technologie | Utilité |
-|---|---|
-| Laravel 11 | Framework principal |
-| Livewire 3 | Composants dynamiques sans JS — ma grande découverte |
-| Filament 3 | Panneau admin prêt à l'emploi |
-| Laravel Breeze | Auth rapide et personnalisable |
-| TailwindCSS 3 | Design responsive |
-| MySQL 8.0 | Base de données |
+| Technologie | Version | Rôle |
+|---|---|---|
+| Laravel | 11 | Framework principal |
+| Laravel Breeze | — | Authentification (inscription, connexion, déconnexion) |
+| Livewire | 3 | Composants dynamiques sans JS |
+| Filament | 3 | Panneau d'administration |
+| TailwindCSS | 3 | Interface responsive + couleurs personnalisées |
+| Alpine.js | — | Interactions JS légères |
+| MySQL | 8.0 | Base de données |
 
 ---
 
-## Lancer le projet en local
+## Installation
 
 ### 1. Cloner le dépôt
 
@@ -73,7 +86,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-Puis renseigner les infos de connexion dans `.env` :
+Renseigner les infos de connexion dans `.env` :
 
 ```env
 DB_CONNECTION=mysql
@@ -96,25 +109,27 @@ php artisan migrate --seed
 npm run build
 ```
 
-### 6. Démarrer
+### 6. Démarrer le serveur
 
 ```bash
 php artisan serve
 ```
 
-L'appli est accessible sur [http://127.0.0.1:8000](http://127.0.0.1:8000)
+Accessible sur [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-### 7. Créer un compte admin
+### 7. Créer un compte administrateur
 
 ```bash
 php artisan make:filament-user
 ```
 
-Panel accessible sur `/admin`
+Panneau admin accessible sur `/admin`
 
 ---
 
 ## Structure de la base de données
+
+Deux tables principales conformes au sujet :
 
 ```
 ┌─────────────┐       ┌─────────────┐       ┌─────────────┐
@@ -131,6 +146,22 @@ Panel accessible sur `/admin`
 ```
 
 Statuts des réservations : `pending` (jaune) · `confirmed` (vert) · `cancelled` (rouge)
+
+> Les colonnes `total_price`, `status`, `location`, `max_guests` et `image` ont été ajoutées par rapport au sujet de base pour enrichir l'expérience utilisateur.
+
+---
+
+## Composant Livewire
+
+Le composant `BookingManager` gère la réservation dynamique :
+
+- `wire:model.live` sur les champs de dates → recalcul du prix total en temps réel
+- `wire:click` sur les boutons de confirmation et d'annulation
+- Vérification des chevauchements de dates côté serveur avant toute insertion
+
+```bash
+php artisan make:livewire BookingManager
+```
 
 ---
 
@@ -166,9 +197,9 @@ Statuts des réservations : `pending` (jaune) · `confirmed` (vert) · `cancelle
 
 **Ce qui m'a pris du temps**
 
-- **Conflit Livewire v3 / Filament** : j'ai perdu du temps à comprendre quelle version était compatible avec laquelle. Solution : `composer require livewire/livewire:^3.5` + `filament/filament:^3.0`
-- **Extensions PHP sur XAMPP** : `ext-intl` et `ext-zip` à activer manuellement dans `php.ini` — pas évident quand on débute.
-- **Conflits de dates** : vérifier les chevauchements de réservations sans double-réserver demande de bien réfléchir à la logique Eloquent.
+- **Conflit Livewire v3 / Filament** : comprendre quelle version était compatible avec laquelle. Solution : `composer require livewire/livewire:^3.5` + `filament/filament:^3.0`
+- **Extensions PHP sur XAMPP** : `ext-intl` et `ext-zip` à activer manuellement dans `php.ini`.
+- **Conflits de dates** : vérifier les chevauchements sans double-réserver demande de bien maîtriser les requêtes Eloquent.
 - La traduction des statuts en français dans l'interface utilisateur.
 
 ---
@@ -176,7 +207,7 @@ Statuts des réservations : `pending` (jaune) · `confirmed` (vert) · `cancelle
 ## Pistes d'amélioration
 
 - [ ] Système de notation des propriétés
-- [ ] Envoi d'e-mails de confirmation
+- [ ] Envoi d'e-mails de confirmation après réservation
 - [ ] Filtrage avancé (prix, localisation, nombre de chambres)
 - [ ] Calendrier visuel des disponibilités
 - [ ] Paiement en ligne (Stripe)
@@ -193,6 +224,7 @@ Statuts des réservations : `pending` (jaune) · `confirmed` (vert) · `cancelle
 | `php artisan serve` | Démarrer le serveur de développement |
 | `php artisan migrate:fresh --seed` | Réinitialiser la base de données |
 | `php artisan cache:clear` | Vider le cache |
+| `php artisan view:clear` | Vider le cache des vues |
 | `php artisan test` | Lancer les tests |
 | `npm run dev` | Compiler les assets (développement) |
 | `npm run build` | Compiler les assets (production) |
