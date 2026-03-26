@@ -166,6 +166,9 @@ php artisan make:livewire BookingManager
 ---
 
 ## Captures d'écran
+### Page d'authentification 
+<img width="1787" height="955" alt="image" src="https://github.com/user-attachments/assets/c3d25fc3-15d9-4cac-bbab-0f1664105998" />
+
 
 ### Page d'accueil — liste des propriétés
 <img width="1889" height="938" alt="image" src="https://github.com/user-attachments/assets/c100ef4c-d9ab-4fe5-83ea-3993258461f0" />
