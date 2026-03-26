@@ -1,99 +1,79 @@
-#  ImmoReserv
+# ImmoReserv
 
-![Status](https://img.shields.io/badge/status-completed-brightgreen)
+![Status](https://img.shields.io/badge/status-terminé-brightgreen)
 ![Laravel](https://img.shields.io/badge/Laravel-11-red)
 ![Livewire](https://img.shields.io/badge/Livewire-3-blue)
 ![Filament](https://img.shields.io/badge/Filament-3-teal)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4)
 ![PHP Version](https://img.shields.io/badge/PHP-8.2-blue)
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 
-Application de gestion de réservations immobilières réalisée dans le cadre d'un test technique. Le projet permet aux utilisateurs de consulter des biens, d'effectuer des réservations avec calcul dynamique du prix, et de gérer leurs réservations via un tableau de bord personnel.
-
----
-
-##  Table des matières
-
-- [Fonctionnalités](#-fonctionnalités)
-- [Technologies utilisées](#-technologies-utilisées)
-- [Installation](#-installation)
-- [Configuration](#-configuration)
-- [Utilisation](#-utilisation)
-- [Structure de la base de données](#-structure-de-la-base-de-données)
-- [Captures d'écran](#-captures-décran)
-- [Améliorations possibles](#-améliorations-possibles)
-- [Résolution des problèmes](#-résolution-des-problèmes)
-- [FAQ](#-faq)
-- [Retour d'expérience](#-retour-dexpérience)
-- [Auteur](#-auteur)
+Application de réservation immobilière réalisée dans le cadre d'un test technique.
 
 ---
 
-##  Fonctionnalités
+## C'est quoi le projet ?
 
-###  Côté utilisateur
-- Authentification complète (inscription, connexion, déconnexion) avec Laravel Breeze
-- Tableau de bord personnel avec métriques clés
-- Liste des propriétés disponibles avec photos et prix par nuit
-- Détail d'une propriété avec formulaire de réservation dynamique
-- Calcul automatique du prix total en temps réel selon les dates sélectionnées
-- Page "Mes réservations" avec possibilité de confirmer ou annuler
-- Vérification des conflits de dates pour éviter les double-réservations
+ImmoReserv est une appli web de gestion de réservations immobilières. Les utilisateurs peuvent parcourir des biens, réserver des dates avec un **calcul de prix en temps réel**, et gérer leurs réservations depuis un tableau de bord. Il y a aussi un **panneau admin complet** pour gérer biens et réservations.
 
-###  Panneau d'administration (Filament)
-- Gestion complète des propriétés (CRUD)
-- Gestion complète des réservations (CRUD)
+C'était ma première vraie plongée dans **Livewire** et **Filament**, deux technos que je ne connaissais pas avant ce projet.
+
+---
+
+## Fonctionnalités
+
+### Côté utilisateur
+- Inscription / connexion (Laravel Breeze)
+- Tableau de bord personnel avec métriques
+- Liste et détail des biens disponibles
+- Formulaire de réservation avec calcul automatique du prix total selon les dates
+- Gestion de ses réservations (confirmation, annulation)
+- Détection des conflits de dates pour éviter les doubles réservations
+
+### Panneau admin (Filament)
+- CRUD complet sur les biens
+- CRUD complet sur les réservations
 - Filtres et recherche avancée
-- Interface intuitive et responsive
-- Traduction française de l'interface
+- Interface responsive, traduite en français
 
 ---
 
-##  Technologies utilisées
+## Stack technique
 
-| Technologie | Version | Utilité |
-|-------------|---------|---------|
-| Laravel | 11 | Framework PHP principal |
-| Laravel Breeze | - | Authentification utilisateur |
-| Livewire | 3 | Composants dynamiques sans JavaScript |
-| Filament | 3 | Panneau d'administration |
-| TailwindCSS | 3 | Stylisation et design responsive |
-| MySQL | 8.0 | Base de données |
-| Alpine.js | - | Interactions JavaScript légères |
+| Technologie | Utilité |
+|---|---|
+| Laravel 11 | Framework principal |
+| Livewire 3 | Composants dynamiques sans JS — ma grande découverte |
+| Filament 3 | Panneau admin prêt à l'emploi |
+| Laravel Breeze | Auth rapide et personnalisable |
+| TailwindCSS 3 | Design responsive |
+| MySQL 8.0 | Base de données |
 
+---
 
+## Lancer le projet en local
 
-##  Installation
-
-### 1. Cloner le projet
+### 1. Cloner le dépôt
 
 ```bash
 git clone https://github.com/merveillekadymaitovo-stack/laravel-real-estate-booking.git
 cd laravel-real-estate-booking
 ```
 
-### 2. Installer les dépendances PHP
+### 2. Installer les dépendances
 
 ```bash
 composer install
-```
-
-### 3. Installer les dépendances JavaScript
-
-```bash
 npm install
 ```
 
-### 4. Configurer l'environnement
+### 3. Configurer l'environnement
 
 ```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-### 5. Configurer la base de données
-
-Éditez le fichier `.env` avec vos informations de connexion :
+Puis renseigner les infos de connexion dans `.env` :
 
 ```env
 DB_CONNECTION=mysql
@@ -104,79 +84,37 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 6. Lancer les migrations et seeders
+### 4. Migrations + seeders
 
 ```bash
 php artisan migrate --seed
 ```
 
-### 7. Compiler les assets
+### 5. Compiler les assets
 
 ```bash
 npm run build
 ```
 
-### 8. Démarrer le serveur
+### 6. Démarrer
 
 ```bash
 php artisan serve
 ```
 
-L'application est accessible sur : [http://127.0.0.1:8000](http://127.0.0.1:8000)
+L'appli est accessible sur [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
----
-
-##  Configuration
-
-### Créer un compte administrateur
-
-Pour accéder au panneau d'administration Filament :
+### 7. Créer un compte admin
 
 ```bash
 php artisan make:filament-user
 ```
 
-Puis remplissez les informations demandées :
-- **Name** : Admin
-- **Email** : admin@example.com
-- **Password** : 1234
-
-Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
-
-### Commandes utiles
-
-| Commande | Description |
-|----------|-------------|
-| `php artisan serve` | Démarrer le serveur de développement |
-| `php artisan migrate:fresh --seed` | Réinitialiser et repeupler la base de données|
-| `php artisan cache:clear` | Vider le cache de l'application |
-| `php artisan view:clear` | Vider le cache des vues |
-| `php artisan test` | Lancer les tests automatisés |
-| `npm run dev` | Compiler les assets en mode développement |
-| `npm run build` | Compiler les assets en mode production |
+Panel accessible sur `/admin`
 
 ---
 
-##  Utilisation
-
-### Pour les utilisateurs
-
-1. **Inscription / Connexion** : Créez un compte ou connectez-vous
-2. **Parcourir les propriétés** : Consultez la liste des biens disponibles
-3. **Réserver** : Sur la page d'un bien, sélectionnez vos dates et confirmez la réservation
-4. **Gérer mes réservations** : Dans "Mes réservations", confirmez ou annulez vos séjours
-
-### Pour l'administrateur
-
-1. **Accéder à l'admin** : Connectez-vous sur `/admin`
-2. **Gérer les propriétés** : Ajoutez, modifiez ou supprimez des biens
-3. **Gérer les réservations** : Visualisez et modifiez les statuts des réservations
-
----
-
-##  Structure de la base de données
-
-### Diagramme des relations
+## Structure de la base de données
 
 ```
 ┌─────────────┐       ┌─────────────┐       ┌─────────────┐
@@ -192,32 +130,22 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
                       └─────────────┘       └─────────────┘
 ```
 
-### Statuts des réservations
-
-| Statut | Description | Visuel |
-|--------|-------------|--------|
-| `pending` | En attente de confirmation |  Jaune |
-| `confirmed` | Confirmée |  Vert |
-| `cancelled` | Annulée |  Rouge |
+Statuts des réservations : `pending` (jaune) · `confirmed` (vert) · `cancelled` (rouge)
 
 ---
 
-##  Captures d'écran
+## Captures d'écran
 
-### Page d'accueil - Liste des propriétés
+### Page d'accueil — liste des propriétés
 <img width="1889" height="938" alt="image" src="https://github.com/user-attachments/assets/c100ef4c-d9ab-4fe5-83ea-3993258461f0" />
 <img width="1917" height="970" alt="image" src="https://github.com/user-attachments/assets/d56a6fae-22bc-4a0c-b79a-fcc1e7e0ee9f" />
 
-
-
-### Détail d'une propriété - Formulaire de réservation dynamique
+### Détail d'une propriété — formulaire de réservation dynamique
 <img width="1786" height="923" alt="image" src="https://github.com/user-attachments/assets/85862153-609d-42e3-a417-9be736032fe2" />
 <img width="1919" height="949" alt="image" src="https://github.com/user-attachments/assets/78902e7d-26a1-4510-8eac-97b28761509b" />
 
-
 ### Tableau de bord utilisateur
 <img width="1915" height="929" alt="image" src="https://github.com/user-attachments/assets/124d064b-311f-4492-9021-9b0f190693bc" />
-
 
 ### Mes réservations
 <img width="1910" height="925" alt="image" src="https://github.com/user-attachments/assets/d4def4ce-fe24-407a-9b9c-260ac06606ea" />
@@ -225,164 +153,52 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 ### Panneau d'administration Filament
 <img width="1892" height="897" alt="image" src="https://github.com/user-attachments/assets/db87e79f-0a44-412c-81c9-96d85052f552" />
 
+---
+
+## Ce que j'ai appris (et galéré)
+
+**Points positifs**
+
+- **Livewire** : `wire:model.live` pour le calcul en temps réel — plus besoin d'écrire de JS pour ça, c'est franchement pratique.
+- **Filament** : un panneau admin complet en quelques lignes de config, j'aurais mis des semaines à faire ça à la main.
+- **Breeze** : auth clé en main, facile à adapter.
+- Les documentations de Livewire et Filament sont très bien faites.
+
+**Ce qui m'a pris du temps**
+
+- **Conflit Livewire v3 / Filament** : j'ai perdu du temps à comprendre quelle version était compatible avec laquelle. Solution : `composer require livewire/livewire:^3.5` + `filament/filament:^3.0`
+- **Extensions PHP sur XAMPP** : `ext-intl` et `ext-zip` à activer manuellement dans `php.ini` — pas évident quand on débute.
+- **Conflits de dates** : vérifier les chevauchements de réservations sans double-réserver demande de bien réfléchir à la logique Eloquent.
+- La traduction des statuts en français dans l'interface utilisateur.
 
 ---
 
-##  Améliorations possibles
+## Pistes d'amélioration
 
-### Court terme
-- [ ] Système de notation des propriétés par les utilisateurs 
-- [ ] Envoi d'emails de confirmation après réservation
-- [ ] Filtrage avancé des propriétés (prix, localisation, nombre de chambres)
-- [ ] Pagination sur la liste des propriétés
-
-### Long terme
+- [ ] Système de notation des propriétés
+- [ ] Envoi d'e-mails de confirmation
+- [ ] Filtrage avancé (prix, localisation, nombre de chambres)
 - [ ] Calendrier visuel des disponibilités
 - [ ] Paiement en ligne (Stripe)
 - [ ] API REST pour applications mobiles
-- [ ] Système de favoris
-- [ ] Notifications en temps réel (Laravel Echo + Pusher)
+- [ ] Notifications temps réel (Laravel Echo + Pusher)
 - [ ] Export des réservations en PDF/Excel
 
 ---
 
-##  Résolution des problèmes courants
+## Commandes utiles
 
-### Extension PHP intl manquante
-
-**Erreur :** `ext-intl is missing`
-
-**Solution :**
-```bash
-# Dans php.ini, décommentez :
-extension=intl
-```
-
-### Extension PHP zip manquante
-
-**Erreur :** `ext-zip is missing`
-
-**Solution :**
-```bash
-# Dans php.ini, décommentez :
-extension=zip
-```
-
-### Problème de permission sur vendor/
-
-**Solution :**
-```bash
-rm -rf vendor/
-composer install
-```
-
-### Conflit de version Livewire/Filament
-
-**Solution :**
-```bash
-composer require livewire/livewire:^3.5
-composer require filament/filament:^3.0
-```
-
-### Erreur 500 après migration
-
-**Solution :**
-```bash
-php artisan cache:clear
-php artisan config:clear
-php artisan view:clear
-php artisan optimize
-```
+| Commande | Description |
+|---|---|
+| `php artisan serve` | Démarrer le serveur de développement |
+| `php artisan migrate:fresh --seed` | Réinitialiser la base de données |
+| `php artisan cache:clear` | Vider le cache |
+| `php artisan test` | Lancer les tests |
+| `npm run dev` | Compiler les assets (développement) |
+| `npm run build` | Compiler les assets (production) |
 
 ---
 
-##  FAQ
+## Auteure
 
-**Comment réinitialiser complètement l'application ?**
-
-```bash
-php artisan migrate:fresh --seed
-php artisan cache:clear
-php artisan view:clear
-```
-
-**Comment créer un nouvel administrateur ?**
-
-```bash
-php artisan make:filament-user
-```
-
-**Comment modifier les informations d'un utilisateur ?**
-
-Connectez-vous au panneau d'administration Filament, allez dans la section "Users" (si configurée) ou modifiez directement en base de données.
-
-**Les réservations ne s'affichent pas correctement ?**
-
-Vérifiez que les dates sont au bon format et qu'il n'y a pas de conflits. Nettoyez le cache :
-```bash
-php artisan cache:clear
-php artisan view:clear
-```
-
-**Comment ajouter des propriétés de test ?**
-
-Utilisez les seeders :
-```bash
-php artisan db:seed --class=PropertySeeder
-```
-
----
-
-##  Retour d'expérience
-
-C'était ma première expérience avec **Livewire** et **Filament**. Voici mon ressenti :
-
-### Points positifs
-- **Livewire** : la simplicité de créer des composants dynamiques sans écrire de JavaScript
-- **Filament** : la rapidité de mise en place d'un panneau d'administration complet
-- **Laravel Breeze** : l'authentification prête à l'emploi et facilement personnalisable
-- **Documentation** : les documentations de Livewire et Filament sont très complètes
-
-### Défis rencontrés
-- La gestion des conflits de dates pour les réservations (vérification des chevauchements)
-- L'installation de Filament avec les bonnes versions de Livewire (conflit entre v3 et v4)
-- La configuration des extensions PHP (intl, zip) sur XAMPP
-- La traduction des statuts en français dans l'interface utilisateur
-
-### Ce que j'ai appris
-- Utilisation des composants Livewire avec `wire:model.live` pour le calcul en temps réel
-- Configuration d'un panneau Filament avec des ressources personnalisées
-- Gestion des relations Eloquent pour les réservations
-- Validation des dates et vérification des conflits
-
----
-
-##  Licence
-
-Ce projet est réalisé dans le cadre d'un test technique.
-
----
-
-##  Auteur
-
-**Kady Merveille Maitovo**
-
-- GitHub : [@merveillekadymaitovo-stack](https://github.com/merveillekadymaitovo-stack)
-
----
-
-##  Remerciements
-
-- [Laravel](https://laravel.com) - Framework PHP
-- [Livewire](https://livewire.laravel.com) - Composants dynamiques
-- [Filament](https://filamentphp.com) - Panneau d'administration
-- [TailwindCSS](https://tailwindcss.com) - Framework CSS
-
----
-
-##  Langues
-
-- [Français](README.md)
-- [English](README.en.md) (à venir)
-
----
+**Kady Merveille Maitovo** — [@merveillekadymaitovo-stack](https://github.com/merveillekadymaitovo-stack)
