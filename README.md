@@ -231,7 +231,7 @@ Accédez ensuite à : [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 ##  Améliorations possibles
 
 ### Court terme
-- [ ] Système de notation des propriétés par les utilisateurs (⭐⭐⭐⭐⭐)
+- [ ] Système de notation des propriétés par les utilisateurs 
 - [ ] Envoi d'emails de confirmation après réservation
 - [ ] Filtrage avancé des propriétés (prix, localisation, nombre de chambres)
 - [ ] Pagination sur la liste des propriétés
@@ -386,11 +386,3 @@ Ce projet est réalisé dans le cadre d'un test technique.
 - [English](README.en.md) (à venir)
 
 ---
-
-##  Statistiques du projet
-
-![Code Size](https://img.shields.io/github/languages/code-size/merveillekadymaitovo-stack/laravel-real-estate-booking)
-![Repo Size](https://img.shields.io/github/repo-size/merveillekadymaitovo-stack/laravel-real-estate-booking)
-![Last Commit](https://img.shields.io/github/last-commit/merveillekadymaitovo-stack/laravel-real-estate-booking)
-```
-
