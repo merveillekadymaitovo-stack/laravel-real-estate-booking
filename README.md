@@ -1,92 +1,76 @@
 # ImmoReserv
 
-![Status](https://img.shields.io/badge/status-terminé-brightgreen)
-![Laravel](https://img.shields.io/badge/Laravel-11-red)
-![Livewire](https://img.shields.io/badge/Livewire-3-blue)
-![Filament](https://img.shields.io/badge/Filament-3-teal)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4)
-![PHP Version](https://img.shields.io/badge/PHP-8.2-blue)
-
-Application de gestion de réservations immobilières réalisée dans le cadre d'un test technique.  
-Elle couvre l'ensemble des livrables demandés : authentification Breeze, gestion des propriétés et réservations, interface Blade + TailwindCSS, composant Livewire dynamique et panneau Filament.
+Application de gestion de réservations immobilières — réalisée dans le cadre d'un test technique.
 
 ---
 
-## Livrables — récapitulatif
+## C'est quoi ?
 
-| Livrable demandé | Statut |
-|---|---|
-| Projet Laravel fonctionnel avec authentification Breeze | ✅ |
-| Gestion des propriétés et réservations | ✅ |
-| Interface Blade avec TailwindCSS et couleurs personnalisées | ✅ |
-| Composant Livewire pour la réservation (`wire:model`, `wire:click`) | ✅ |
-| Panneau Filament avec tables et formulaires | ✅ |
-| Projet disponible sur Git + captures d'écran | ✅ |
+ImmoReserv c'est une app qui permet de parcourir des biens immobiliers, de réserver des dates avec un calcul de prix en temps réel, et de gérer ses réservations depuis un tableau de bord. Il y a aussi un panneau admin pour tout gérer côté back-office.
+
+J'ai couvert tous les livrables demandés : auth Breeze, gestion propriétés/réservations, interface Blade + Tailwind, composant Livewire dynamique et panneau Filament.
 
 ---
 
-## C'est quoi le projet ?
+## Ce que ça fait
 
-ImmoReserv permet aux utilisateurs de parcourir des biens immobiliers, de réserver des dates avec un **calcul de prix en temps réel**, et de gérer leurs réservations depuis un tableau de bord personnel. Un **panneau d'administration Filament** permet de gérer l'ensemble des données.
-
----
-
-## Fonctionnalités
-
-### Côté utilisateur
+**Côté utilisateur**
 - Inscription / connexion / déconnexion (Laravel Breeze)
-- Tableau de bord avec métriques clés
-- Liste des propriétés disponibles avec photos et prix par nuit
-- Formulaire de réservation dynamique avec calcul automatique du prix total
-- Page "Mes réservations" — confirmation et annulation
+- Tableau de bord avec quelques métriques
+- Liste des propriétés avec photos et prix par nuit
+- Formulaire de réservation dynamique — le prix total se recalcule en temps réel quand on change les dates
+- Page "Mes réservations" pour confirmer ou annuler
 - Vérification des conflits de dates pour éviter les doubles réservations
 
-### Panneau admin (Filament)
-- CRUD complet sur les propriétés
-- CRUD complet sur les réservations
-- Filtres, recherche avancée
-- Interface responsive, traduite en français
+**Panneau admin (Filament)**
+- CRUD complet sur les propriétés et les réservations
+- Filtres, recherche, interface traduite en français
 
 ---
+---
 
-## Stack technique
+## Captures d'écran
 
-| Technologie | Version | Rôle |
-|---|---|---|
-| Laravel | 11 | Framework principal |
-| Laravel Breeze | — | Authentification (inscription, connexion, déconnexion) |
-| Livewire | 3 | Composants dynamiques sans JS |
-| Filament | 3 | Panneau d'administration |
-| TailwindCSS | 3 | Interface responsive + couleurs personnalisées |
-| Alpine.js | — | Interactions JS légères |
-| MySQL | 8.0 | Base de données |
+### Page d'authentification
+<img width="1503" height="720" alt="Capture d&#39;écran 2026-03-20 222518" src="https://github.com/user-attachments/assets/08bba3f4-b47c-4dd3-a970-af13437e46f3" />
+<img width="1787" height="955" alt="image" src="https://github.com/user-attachments/assets/c3d25fc3-15d9-4cac-bbab-0f1664105998" />
+
+### Tableau de bord utilisateur
+<img width="1915" height="929" alt="image" src="https://github.com/user-attachments/assets/124d064b-311f-4492-9021-9b0f190693bc" />
+
+### Liste des propriétés
+<img width="1889" height="938" alt="image" src="https://github.com/user-attachments/assets/c100ef4c-d9ab-4fe5-83ea-3993258461f0" />
+<img width="1917" height="970" alt="image" src="https://github.com/user-attachments/assets/d56a6fae-22bc-4a0c-b79a-fcc1e7e0ee9f" />
+
+### Détail d'une propriété — formulaire de réservation
+<img width="1786" height="923" alt="image" src="https://github.com/user-attachments/assets/85862153-609d-42e3-a417-9be736032fe2" />
+<img width="1919" height="949" alt="image" src="https://github.com/user-attachments/assets/78902e7d-26a1-4510-8eac-97b28761509b" />
+
+### Mes réservations
+<img width="1910" height="925" alt="image" src="https://github.com/user-attachments/assets/d4def4ce-fe24-407a-9b9c-260ac06606ea" />
+
+### Panneau d'administration Filament
+<img width="1892" height="897" alt="image" src="https://github.com/user-attachments/assets/db87e79f-0a44-412c-81c9-96d85052f552" />
+## Stack
+
+Laravel 11 · Breeze · Livewire 3 · Filament 3 · TailwindCSS · Alpine.js · MySQL 8.0
 
 ---
 
 ## Installation
 
-### 1. Cloner le dépôt
-
 ```bash
 git clone https://github.com/merveillekadymaitovo-stack/laravel-real-estate-booking.git
 cd laravel-real-estate-booking
-```
 
-### 2. Installer les dépendances
-
-```bash
 composer install
 npm install
-```
 
-### 3. Configurer l'environnement
-
-```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-Renseigner les infos de connexion dans `.env` :
+Dans `.env`, configurer la base de données :
 
 ```env
 DB_CONNECTION=mysql
@@ -97,148 +81,80 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 4. Migrations + seeders
-
 ```bash
 php artisan migrate --seed
-```
-
-### 5. Compiler les assets
-
-```bash
 npm run build
-```
-
-### 6. Démarrer le serveur
-
-```bash
 php artisan serve
 ```
 
-Accessible sur [http://127.0.0.1:8000](http://127.0.0.1:8000)
+→ [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-### 7. Créer un compte administrateur
-
+Pour le panneau admin :
 ```bash
 php artisan make:filament-user
 ```
-
-Panneau admin accessible sur `/admin`
+Accessible sur `/admin`
 
 ---
 
-## Structure de la base de données
+## Base de données
 
-Deux tables principales conformes au sujet :
+Deux tables principales :
 
 ```
-┌─────────────┐       ┌─────────────┐       ┌─────────────┐
-│   users     │       │  bookings   │       │ properties  │
-├─────────────┤       ├─────────────┤       ├─────────────┤
-│ id          │──┐    │ id          │    ┌──│ id          │
-│ name        │  │    │ user_id     │────┘  │ name        │
-│ email       │  └────│ property_id │       │ description │
-│ password    │       │ start_date  │       │ price_per_night│
-└─────────────┘       │ end_date    │       │ location    │
-                      │ total_price │       │ max_guests  │
-                      │ status      │       │ image       │
-                      └─────────────┘       └─────────────┘
+users ──── bookings ──── properties
+           (start_date)   (price_per_night)
+           (end_date)     (location)
+           (total_price)  (max_guests)
+           (status)       (image)
 ```
 
-Statuts des réservations : `pending` (jaune) · `confirmed` (vert) · `cancelled` (rouge)
+Statuts : `pending` · `confirmed` · `cancelled`
 
-> Les colonnes `total_price`, `status`, `location`, `max_guests` et `image` ont été ajoutées par rapport au sujet de base pour enrichir l'expérience utilisateur.
-
----
-
-## Composant Livewire
-
-Le composant `BookingManager` gère la réservation dynamique :
-
-- `wire:model.live` sur les champs de dates → recalcul du prix total en temps réel
-- `wire:click` sur les boutons de confirmation et d'annulation
-- Vérification des chevauchements de dates côté serveur avant toute insertion
-
-```bash
-php artisan make:livewire BookingManager
-```
+> J'ai ajouté quelques colonnes par rapport au sujet de base (`total_price`, `status`, `location`, `max_guests`, `image`) pour que l'expérience soit un peu plus complète.
 
 ---
 
-## Captures d'écran
-### Page d'authentification 
-<img width="1503" height="720" alt="Capture d&#39;écran 2026-03-20 222518" src="https://github.com/user-attachments/assets/08bba3f4-b47c-4dd3-a970-af13437e46f3" />
+## Le composant Livewire
 
-<img width="1787" height="955" alt="image" src="https://github.com/user-attachments/assets/c3d25fc3-15d9-4cac-bbab-0f1664105998" />
-
-### Tableau de bord utilisateur
-<img width="1915" height="929" alt="image" src="https://github.com/user-attachments/assets/124d064b-311f-4492-9021-9b0f190693bc" />
-
-
-
-### Page  — liste des propriétés
-<img width="1889" height="938" alt="image" src="https://github.com/user-attachments/assets/c100ef4c-d9ab-4fe5-83ea-3993258461f0" />
-<img width="1917" height="970" alt="image" src="https://github.com/user-attachments/assets/d56a6fae-22bc-4a0c-b79a-fcc1e7e0ee9f" />
-
-
-### Détail d'une propriété — formulaire de réservation dynamique
-<img width="1786" height="923" alt="image" src="https://github.com/user-attachments/assets/85862153-609d-42e3-a417-9be736032fe2" />
-<img width="1919" height="949" alt="image" src="https://github.com/user-attachments/assets/78902e7d-26a1-4510-8eac-97b28761509b" />
-
-
-### Mes réservations
-<img width="1910" height="925" alt="image" src="https://github.com/user-attachments/assets/d4def4ce-fe24-407a-9b9c-260ac06606ea" />
-
-### Panneau d'administration Filament
-<img width="1892" height="897" alt="image" src="https://github.com/user-attachments/assets/db87e79f-0a44-412c-81c9-96d85052f552" />
+C'est la partie que j'ai trouvée la plus intéressante. Le composant `BookingManager` utilise `wire:model.live` sur les champs de dates pour recalculer le prix en temps réel, sans écrire une ligne de JS. Les boutons de confirmation/annulation passent par `wire:click`, et la vérification des chevauchements se fait côté serveur avant toute insertion.
 
 ---
 
-## Ce que j'ai appris (et galéré)
+## Ce que j'ai galéré (pour être honnête)
 
-**Points positifs**
+- **Conflit Livewire v3 / Filament** : j'ai passé du temps à comprendre quelle version était compatible avec laquelle. Solution finale : `livewire/livewire:^3.5` + `filament/filament:^3.0`
+- **Extensions PHP sur XAMPP** : `ext-intl` et `ext-zip` à activer à la main dans `php.ini`, j'ai cherché un moment pourquoi ça plantait
+- **Les conflits de dates** : la logique de vérification des chevauchements demande de bien maîtriser Eloquent
 
-- **Livewire** : `wire:model.live` pour le calcul en temps réel — plus besoin d'écrire de JS pour ça, c'est franchement pratique.
-- **Filament** : un panneau admin complet en quelques lignes de config, j'aurais mis des semaines à faire ça à la main.
-- **Breeze** : auth clé en main, facile à adapter.
-- Les documentations de Livewire et Filament sont très bien faites.
-
-**Ce qui m'a pris du temps**
-
-- **Conflit Livewire v3 / Filament** : comprendre quelle version était compatible avec laquelle. Solution : `composer require livewire/livewire:^3.5` + `filament/filament:^3.0`
-- **Extensions PHP sur XAMPP** : `ext-intl` et `ext-zip` à activer manuellement dans `php.ini`.
-- **Conflits de dates** : vérifier les chevauchements sans double-réserver demande de bien maîtriser les requêtes Eloquent.
-- La traduction des statuts en français dans l'interface utilisateur.
+**Ce que j'ai vraiment apprécié par contre** — Livewire pour le temps réel sans JS, et Filament pour le panneau admin : j'aurais mis des semaines à faire ça à la main. Les deux ont des docs très bien faites.
 
 ---
 
-## Pistes d'amélioration
+## Ce que j'ajouterais si j'avais plus de temps
 
-- [ ] Système de notation des propriétés
-- [ ] Envoi d'e-mails de confirmation après réservation
-- [ ] Filtrage avancé (prix, localisation, nombre de chambres)
-- [ ] Calendrier visuel des disponibilités
-- [ ] Paiement en ligne (Stripe)
-- [ ] API REST pour applications mobiles
-- [ ] Notifications temps réel (Laravel Echo + Pusher)
-- [ ] Export des réservations en PDF/Excel
+- Système de notation des propriétés
+- Emails de confirmation automatiques
+- Filtrage avancé (prix, localisation…)
+- Calendrier visuel des disponibilités
+- Paiement en ligne (Stripe)
+- API REST pour une éventuelle app mobile
+- Notifications temps réel (Laravel Echo + Pusher)
+- Export PDF/Excel des réservations
 
 ---
 
 ## Commandes utiles
 
-| Commande | Description |
-|---|---|
-| `php artisan serve` | Démarrer le serveur de développement |
-| `php artisan migrate:fresh --seed` | Réinitialiser la base de données |
-| `php artisan cache:clear` | Vider le cache |
-| `php artisan view:clear` | Vider le cache des vues |
-| `php artisan test` | Lancer les tests |
-| `npm run dev` | Compiler les assets (développement) |
-| `npm run build` | Compiler les assets (production) |
+```bash
+php artisan serve                  # démarrer le serveur
+php artisan migrate:fresh --seed   # réinitialiser la BDD
+php artisan cache:clear            # vider le cache
+php artisan test                   # lancer les tests
+npm run dev                        # compiler les assets (dev)
+npm run build                      # compiler les assets (prod)
+```
 
 ---
-
-## Auteure
 
 **Kady Merveille Maitovo** — [@merveillekadymaitovo-stack](https://github.com/merveillekadymaitovo-stack)
