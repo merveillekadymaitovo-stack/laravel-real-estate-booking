@@ -27,7 +27,7 @@ J'ai couvert tous les livrables demandés : auth Breeze, gestion propriétés/r�
 - Filtres, recherche, interface traduite en français
 
 ---
----
+
 
 ## Captures d'écran
 
@@ -51,12 +51,13 @@ J'ai couvert tous les livrables demandés : auth Breeze, gestion propriétés/r�
 
 ### Panneau d'administration Filament
 <img width="1892" height="897" alt="image" src="https://github.com/user-attachments/assets/db87e79f-0a44-412c-81c9-96d85052f552" />
-## Stack
 
+
+## Stack
 Laravel 11 · Breeze · Livewire 3 · Filament 3 · TailwindCSS · Alpine.js · MySQL 8.0
 
 ---
-
+---
 ## Installation
 
 ```bash
